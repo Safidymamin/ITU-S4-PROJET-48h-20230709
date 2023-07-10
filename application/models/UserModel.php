@@ -11,6 +11,17 @@ class UserModel extends CI_Model
     public $phone;
     public $password;
 
+    public function get_user_by_id($id_user)
+    {
+        $this->db->where('id_user', $id_user);
+        $query = $this->db->get('user');
+
+        if ($query->num_rows() === 1) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
     public function verify_credentials($email, $password)
     {
         $this->db->where('email', $email);

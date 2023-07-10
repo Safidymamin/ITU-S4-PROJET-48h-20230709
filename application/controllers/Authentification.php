@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Authentification extends CI_Controller {
 
+	
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,6 +21,9 @@ class Authentification extends CI_Controller {
 	 */
 	
 	public function verifyLogin(){
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
 		$this->checkSession();
 		$this->load->model('userModel');
 
@@ -29,13 +33,7 @@ class Authentification extends CI_Controller {
         $user = $this->userModel->verify_credentials($email, $password);
 
         if ($user) {
-			$userdata = array(
-				'id_user' => $user->id_user,
-				'username' => $user->username,
-				'email' => $user->email,
-				'user_level'=> $user->user_level
-			);
-			$this->session->set_userdata($userdata);
+			$_SESSION['id_user'] = $user->id_user;
 			redirect('user/');
 			echo "User existant.";
         } else {
@@ -44,6 +42,9 @@ class Authentification extends CI_Controller {
 	}
 	public function insertUser()
 	{
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
 		$this->checkSession();
 		$this->load->model('userModel');
 
@@ -65,26 +66,38 @@ class Authentification extends CI_Controller {
 	}
 	public function login()
 	{
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
 		$this->checkSession();
         $this->load->view('authentification/login');
 		
 	}	
 	public function inscription()
 	{
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
 		$this->checkSession();
 		$this->load->view('authentification/inscription');
 		
 	}	
 	public function index()
 	{
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
 		$this->checkSession();
 		$this->load->view('authentification/login');
 		
 	}		
 	public function checkSession(){
-        if ($this->session->userdata('id_user')) {
-            redirect('user/');
-        }
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
+		if (isset($_SESSION['id_user'])) {
+			redirect('user/');
+		}
     }
     
 	
