@@ -37,7 +37,8 @@ class Authentification extends CI_Controller {
 			redirect('user/');
 			echo "User existant.";
         } else {
-			echo "Ohhh";
+			$data['message']='Mots de passe incorrect';
+			$this->load->view('authentification/login',$data);
         }
 	}
 	public function insertUser()

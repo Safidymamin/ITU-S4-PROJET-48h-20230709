@@ -1,9 +1,9 @@
-CREATE USER 'deba'@'localhost' IDENTIFIED BY 'root';
-GRANT ALL PRIVILEGES ON *.* TO 'deba'@'localhost';
-FLUSH PRIVILEGES;
+-- CREATE USER 'deba'@'localhost' IDENTIFIED BY 'root';
+-- GRANT ALL PRIVILEGES ON *.* TO 'deba'@'localhost';
+-- FLUSH PRIVILEGES;
 
-CREATE DATABASE final_exam;
-USE final_exam;
+-- CREATE DATABASE final_exam;
+-- USE final_exam;
 
 CREATE TABLE user(
     id_user INTEGER PRIMARY KEY AUTO_INCREMENT,
