@@ -18,9 +18,9 @@
     <form action=<?php echo base_url('authentification/verifyLogin') ?> method="post">
         <h3>Login Here</h3>
             <label for="username">Username</label>
-            <input type="text" name="email" placeholder="Votre email"  value="anthony@gmail.com" required>
+            <input type="text" name="email" placeholder="Username"  value="anthony@gmail.com" required>
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Mot de passe" id="password" value="anthony" required>
+            <input type="password" name="password" placeholder="password" id="password" value="anthony" required>
             <button>Log In</button>
         <div class="social">
           <div class="go"> <a href=<?php echo base_url('authentification/inscription') ?>>Sing in</a> </div>
