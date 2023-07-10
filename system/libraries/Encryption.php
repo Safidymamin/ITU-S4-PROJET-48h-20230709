@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2019 - 2022, CodeIgniter Foundation
+ * Copyright (c) 2014 - 2016, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,9 +29,8 @@
  * @package	CodeIgniter
  * @author	EllisLab Dev Team
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @copyright	Copyright (c) 2019 - 2022, CodeIgniter Foundation (https://codeigniter.com/)
- * @license	https://opensource.org/licenses/MIT	MIT License
+ * @copyright	Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
  * @since	Version 3.0.0
  * @filesource
@@ -47,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @subpackage	Libraries
  * @category	Libraries
  * @author		Andrey Andreev
- * @link		https://codeigniter.com/userguide3/libraries/encryption.html
+ * @link		https://codeigniter.com/user_guide/libraries/encryption.html
  */
 class CI_Encryption {
 
@@ -136,11 +135,11 @@ class CI_Encryption {
 	);
 
 	/**
-	 * mbstring.func_overload flag
+	 * mbstring.func_override flag
 	 *
 	 * @var	bool
 	 */
-	protected static $func_overload;
+	protected static $func_override;
 
 	// --------------------------------------------------------------------
 
@@ -153,8 +152,10 @@ class CI_Encryption {
 	public function __construct(array $params = array())
 	{
 		$this->_drivers = array(
-			'mcrypt'  => defined('MCRYPT_DEV_URANDOM'),
-			'openssl' => extension_loaded('openssl')
+			'mcrypt' => defined('MCRYPT_DEV_URANDOM'),
+			// While OpenSSL is available for PHP 5.3.0, an IV parameter
+			// for the encrypt/decrypt functions is only available since 5.3.3
+			'openssl' => (is_php('5.3.3') && extension_loaded('openssl'))
 		);
 
 		if ( ! $this->_drivers['mcrypt'] && ! $this->_drivers['openssl'])
@@ -162,7 +163,7 @@ class CI_Encryption {
 			show_error('Encryption: Unable to find an available encryption driver.');
 		}
 
-		isset(self::$func_overload) OR self::$func_overload = ( ! is_php('8.0') && extension_loaded('mbstring') && @ini_get('mbstring.func_overload'));
+		isset(self::$func_override) OR self::$func_override = (extension_loaded('mbstring') && ini_get('mbstring.func_override'));
 		$this->initialize($params);
 
 		if ( ! isset($this->_key) && self::strlen($key = config_item('encryption_key')) > 0)
@@ -338,26 +339,12 @@ class CI_Encryption {
 	{
 		if (function_exists('random_bytes'))
 		{
-			try
-			{
-				return random_bytes((int) $length);
-			}
-			catch (Exception $e)
-			{
-				log_message('error', $e->getMessage());
-				return FALSE;
-			}
-		}
-		elseif (defined('MCRYPT_DEV_URANDOM'))
-		{
-			return mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
+			return random_bytes((int) $length);
 		}
 
-		$is_secure = NULL;
-		$key = openssl_random_pseudo_bytes($length, $is_secure);
-		return ($is_secure === TRUE)
-			? $key
-			: FALSE;
+		return ($this->_driver === 'mcrypt')
+			? mcrypt_create_iv($length, MCRYPT_DEV_URANDOM)
+			: openssl_random_pseudo_bytes($length);
 	}
 
 	// --------------------------------------------------------------------
@@ -413,7 +400,7 @@ class CI_Encryption {
 		// The greater-than-1 comparison is mostly a work-around for a bug,
 		// where 1 is returned for ARCFour instead of 0.
 		$iv = (($iv_size = mcrypt_enc_get_iv_size($params['handle'])) > 1)
-			? $this->create_key($iv_size)
+			? mcrypt_create_iv($iv_size, MCRYPT_DEV_URANDOM)
 			: NULL;
 
 		if (mcrypt_generic_init($params['handle'], $params['key'], $iv) < 0)
@@ -476,8 +463,8 @@ class CI_Encryption {
 		}
 
 		$iv = ($iv_size = openssl_cipher_iv_length($params['handle']))
-			? $this->create_key($iv_size)
-			: '';
+			? openssl_random_pseudo_bytes($iv_size)
+			: NULL;
 
 		$data = openssl_encrypt(
 			$data,
@@ -586,7 +573,7 @@ class CI_Encryption {
 		}
 		else
 		{
-			$iv = '';
+			$iv = NULL;
 		}
 
 		if (mcrypt_generic_init($params['handle'], $params['key'], $iv) < 0)
@@ -633,7 +620,7 @@ class CI_Encryption {
 		}
 		else
 		{
-			$iv = '';
+			$iv = NULL;
 		}
 
 		return empty($params['handle'])
@@ -683,8 +670,10 @@ class CI_Encryption {
 			{
 				return FALSE;
 			}
-
-			$params['mode'] = $this->_modes[$this->_driver][$params['mode']];
+			else
+			{
+				$params['mode'] = $this->_modes[$this->_driver][$params['mode']];
+			}
 		}
 
 		if (isset($params['hmac']) && $params['hmac'] === FALSE)
@@ -906,13 +895,13 @@ class CI_Encryption {
 	 * Byte-safe strlen()
 	 *
 	 * @param	string	$str
-	 * @return	int
+	 * @return	integer
 	 */
 	protected static function strlen($str)
 	{
-		return (self::$func_overload)
-			? mb_strlen((string) $str, '8bit')
-			: strlen((string) $str);
+		return (self::$func_override)
+			? mb_strlen($str, '8bit')
+			: strlen($str);
 	}
 
 	// --------------------------------------------------------------------
@@ -927,7 +916,7 @@ class CI_Encryption {
 	 */
 	protected static function substr($str, $start, $length = NULL)
 	{
-		if (self::$func_overload)
+		if (self::$func_override)
 		{
 			// mb_substr($str, $start, null, '8bit') returns an empty
 			// string on PHP 5.3
