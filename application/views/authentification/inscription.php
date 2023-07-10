@@ -4,41 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/Style_login.css') ?>">
     <title>Inscription</title>
 </head>
 <body>
-    <h3>Page d'inscription</h3>
-    <form action=<?php echo base_url('authentification/insertUser') ?> method="post">
-        <div>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form class='f' action=<?php echo base_url('authentification/insertUser') ?> method="post">
+            <h3>Login Here</h3>
+            
+            <label for="">Usename</label>
             <input type="text" name="username" placeholder="Nom d'utilisateur" id="username" value="Shipu" required>
-            <label for="username" name="username_check"></label>
-        </div>
-        <div>
+            <label for="">lastname</label>
             <input type="text" name="lastname" placeholder="Nom" id="lastname" value="Uzumaki" required>
-            <label for="lastname" name="lastname_check"></label>
-        </div>
-        <div>
+            <label for="">firstname</label>
             <input type="text" name="firstname" placeholder="Prenom" id="firstname" value="Naruto" required>
-            <label for="firstname" name="firstname_check"></label>
-        </div>
-        <div>
+            <label for="">Email</label>
             <input type="email" name="email" placeholder="Votre email" id="email" value="naruto@gmail.com" required>
-            <label for="email" name="email_check"></label>
-        </div>
-        <div>
+            <label for="">Phone number</label>
             <input type="text" name="phone" placeholder="Telephone" id="phone" value="435332" required>
-            <label for="phone" name="phone_check"></label>
-        </div>
-        <div>
+            <label for="">Password</label>
             <input type="password" name="password" placeholder="Mot de passe" id="password" value="naruto" required>
-            <label for="password" name="password_check"></label>
-        </div>
-        <div>
-            <input type="submit" value="Inscription">
+    
+            <button>Log In</button>
+            <div class="social">
+          <div class="go"><a href=<?php echo base_url('authentification/login') ?>>Connexion</a> </div>
+          <!-- <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div> -->
         </div>
     </form>
     <div>
-        <p><a href=<?php echo base_url('authentification/login') ?>>Connexion</a></p>
+        <p></p>
     </div>
 </body>
 </html>
