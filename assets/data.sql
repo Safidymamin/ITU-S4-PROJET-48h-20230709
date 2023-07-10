@@ -13,6 +13,7 @@ CREATE TABLE user(
     firstname VARCHAR(200),
     lastname VARCHAR(200),
     phone VARCHAR(50),
+    argent FLOAT,
     password VARCHAR(200)
     );
 
@@ -22,9 +23,9 @@ CREATE TABLE code(
     valeur FLOAT
     );
 
-INSERT INTO user(username, user_level, email, firstname, lastname, phone, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 'anthony');
-INSERT INTO user(username, user_level, email, firstname, lastname, phone, password) VALUES('Pousy', 0, 'safidy@gmail.com', 'Mamy', 'Safidy', '+261 346183296', 'safidy');
-INSERT INTO user(username, user_level, email, firstname, lastname, phone, password) VALUES('Yoo', 0, 'haingo@gmail.com', 'Adri', 'Haingo', '+261 346183296', 'haingo');
+INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 0, 'anthony');
+INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Pousy', 0, 'safidy@gmail.com', 'Mamy', 'Safidy', '+261 346183296', 0, 'safidy');
+INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Yoo', 0, 'haingo@gmail.com', 'Adri', 'Haingo', '+261 346183296', 0, 'haingo');
 
 INSERT INTO code(code, valeur) VALUES ('aaaa',3214);
 INSERT INTO code(code, valeur) VALUES ('bbbb',3214);

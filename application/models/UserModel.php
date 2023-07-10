@@ -9,6 +9,7 @@ class UserModel extends CI_Model
     public $firstname;
     public $lastname;
     public $phone;
+    public $argent;
     public $password;
 
     public function get_user_by_id($id_user)
@@ -36,6 +37,7 @@ class UserModel extends CI_Model
     }
     public function insert_user($data)
     {
+        $this->argent = 0;
         $this->user_level = 5;
         $this->db->insert('user', $data);
     }
