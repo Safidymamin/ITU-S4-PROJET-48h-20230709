@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/Style_login.css') ?>">
     <title>Login</title>
 </head>
 <body>
-    <h3>Page de login</h3>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
     <form action=<?php echo base_url('authentification/verifyLogin') ?> method="post">
-        <div>
-            <input type="email" name="email" placeholder="Votre email" id="email" value="anthony@gmail.com" required>
-            <label for="email" name="email_check"></label>
-        </div>
-        <div>
+        <h3>Login Here</h3>
+            <label for="username">Username</label>
+            <input type="text" name="email" placeholder="Votre email"  value="anthony@gmail.com" required>
+            <label for="password">Password</label>
             <input type="password" name="password" placeholder="Mot de passe" id="password" value="anthony" required>
-            <label for="password" name="password_check"></label>
-        </div>
-        <div>
-            <input type="submit" value="Connexion">
+            <button>Log In</button>
+        <div class="social">
+          <div class="go"> <a href=<?php echo base_url('authentification/inscription') ?>>Sing in</a> </div>
+          <!-- <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div> -->
         </div>
     </form>
-    <div>
-        <p>Pas de compte? <a href=<?php echo base_url('authentification/inscription') ?>>Inscrivez-vous ici</a></p>
-    </div>
 </body>
 </html>
+<!-- id="username" -->
