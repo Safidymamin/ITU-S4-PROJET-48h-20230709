@@ -13,7 +13,8 @@ CREATE TABLE user(
     firstname VARCHAR(200),
     lastname VARCHAR(200),
     phone VARCHAR(50),
+    argent FLOAT,
     password VARCHAR(200)
     );
 
-INSERT INTO user(username, user_level, email, firstname, lastname, phone, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 'anthony');
+INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 0, 'anthony');

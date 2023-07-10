@@ -7,9 +7,17 @@
     <title>Login</title>
 </head>
 <body>
-    <h3>Page de login</h3>
-    <h1>Bienvenue, <?= $username ? $username : 'Utilisateur' ?></h1>
-    <a href=<?php echo base_url('user/deconnection') ?>>Deconnection</a>
+    <h3>Page de accueil</h3>
+    <?php foreach ($result as $row) : ?>
+        <h1>Bienvenue, <?= $row->username; ?></h1>
+    <?php endforeach; ?>
+    <div>
+        <a href=<?php echo base_url('user/deconnection') ?>>Deconnection</a>
+    </div>
+    <div>
+        <a href=<?php echo base_url('user/ajoutCode') ?>>Ajout code</a>
+    </div>
+    
     
 </body>
 </html>
