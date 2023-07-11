@@ -12,6 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/glightbox@1.2.4/dist/css/glightbox.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/swiper@6.8.1/swiper-bundle.min.css" rel="stylesheet">
 
+
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet">
 
@@ -34,8 +35,8 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+          <li><a class="nav-link scrollto" id="showFormButton">Ajout info santé</a></li>
           <li><a class="nav-link scrollto" href="#new_code">Ajout code</a></li>
           <li><a href=<?php echo base_url('user/deconnection') ?>>Deconnexion</a></li>
           <li><a class="getstarted scrollto" href="#about"><?php echo number_format($user->argent, 0, ',', ' ') ?> Ariary</a></li>
@@ -44,6 +45,35 @@
       </nav><!-- .navbar -->
 
       <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+        document.getElementById('showFormButton').addEventListener('click', function() {
+            Swal.fire({
+                title: 'Formulaire',
+                html: `
+                    <form id="myForm" method="POST" action="<?php echo base_url('Etat_user_controller/index'); ?>" >
+                      <div>
+                          <label for="taille">Taille :</label>
+                          <input type="text" name="taille" id="taille" placeholder=" votre taille" required>
+                      </div>
+                      <div>
+                          <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user'] ?>"  required>
+                      </div>
+                      <div>
+                          <label for="poids">Poids :</label>
+                          <input type="text" name="poids" id="poids" placeholder="votre poids" required>
+                      </div>
+                    </form>
+                `,
+                showCancelButton: true,
+                confirmButtonText: 'Valider',
+                preConfirm: () => {
+                    // Soumission du formulaire
+                    document.getElementById('myForm').submit();
+                }
+            });
+        });
+    </script>
 
     </div>
   </header>

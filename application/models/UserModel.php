@@ -42,11 +42,11 @@ class UserModel extends CI_Model
         $this->db->insert('user', $data);
     }
 
-    public withDraw_argent($id_user, $amount)
-    {
-       $this->get_user_by_id($id_user);
-       $new_vola = $this->argent - $amount;
-       $this->db->set('argent', $new_vola);
+    // public withDraw_argent($id_user, $amount)
+    // {
+    //    $this->get_user_by_id($id_user);
+    //    $new_vola = $this->argent - $amount;
+    //    $this->db->set('argent', $new_vola);
        
-    }
+    // }
 }
