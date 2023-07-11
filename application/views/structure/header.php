@@ -32,14 +32,27 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+            <?php if (isset($success) && !empty($success)) { ?>
+                  <li><a class="nav-link scrollto" id="success-message" style="color : green"><?php echo $success; ?></a></li>
+              <?php } ?>
+  
+              <?php if (isset($error) && !empty($error)) { ?>
+                  <li><a class="nav-link scrollto" id="error-message" style="color : orange"><?php echo $error; ?></a></li>
+              <?php } ?>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
           <li><a class="nav-link scrollto" id="showFormButton">Ajout info santé</a></li>
+          <li class="dropdown"><a href="#"><span>Objectif</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#perte">Perte de poids</a></li>
+              <li><a href="#gain">Gain de poids</a></li>
+              <li><a href="#maintient">Maintient de forme</a></li>
+            </ul>
+          </li>
           <li><a class="nav-link scrollto" href="#new_code">Ajout code</a></li>
           <li><a href=<?php echo base_url('user/deconnection') ?>>Deconnexion</a></li>
-          <li><a class="getstarted scrollto" href="#about"><?php echo number_format($user->argent, 0, ',', ' ') ?> Ariary</a></li>
+          <li><a class="getstarted scrollto" href="#about"><?php echo $user->username ?> -> <?php echo number_format($user->argent, 0, ',', ' ') ?> Euro</a></li>
+        
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
