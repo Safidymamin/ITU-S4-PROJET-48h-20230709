@@ -1730,6 +1730,8 @@ section {
   background: #6ab82a;
 }
 
+
+
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -1752,3 +1754,427 @@ section {
     padding: 20px 0;
   }
 }
+
+
+/*--------------------------------------------------------------
+# perte
+--------------------------------------------------------------*/
+.perte .perte-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.perte .perte-info i {
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #5c9f24;
+}
+
+.perte .perte-info address,
+.perte .perte-info p {
+  margin-bottom: 0;
+  color: #000;
+}
+
+.perte .perte-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.perte .perte-info a {
+  color: #000;
+}
+
+.perte .perte-info a:hover {
+  color: #5c9f24;
+}
+
+.perte .perte-address,
+.perte .perte-phone,
+.perte .perte-email {
+  margin-bottom: 20px;
+}
+
+.perte .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.perte .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.perte .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.perte .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.perte .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.perte .php-email-form input,
+.perte .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  height: auto;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.perte .php-email-form input:focus,
+.perte .php-email-form textarea:focus {
+  border-color: #5c9f24;
+}
+
+.perte .php-email-form button[type=submit] {
+  background: #5c9f24;
+  border: 0;
+  padding: 10px 30px 12px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.perte .php-email-form button[type=submit]:hover {
+  background: #6ab82a;
+}
+
+
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .perte .perte-phone {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+
+  .perte .perte-address,
+  .perte .perte-phone,
+  .perte .perte-email {
+    padding: 20px 0;
+  }
+}
+
+
+
+/*--------------------------------------------------------------
+# gain
+--------------------------------------------------------------*/
+.gain .gain-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.gain .gain-info i {
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #5c9f24;
+}
+
+.gain .gain-info address,
+.gain .gain-info p {
+  margin-bottom: 0;
+  color: #000;
+}
+
+.gain .gain-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.gain .gain-info a {
+  color: #000;
+}
+
+.gain .gain-info a:hover {
+  color: #5c9f24;
+}
+
+.gain .gain-address,
+.gain .gain-phone,
+.gain .gain-email {
+  margin-bottom: 20px;
+}
+
+.gain .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.gain .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.gain .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.gain .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.gain .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.gain .php-email-form input,
+.gain .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  height: auto;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.gain .php-email-form input:focus,
+.gain .php-email-form textarea:focus {
+  border-color: #5c9f24;
+}
+
+.gain .php-email-form button[type=submit] {
+  background: #5c9f24;
+  border: 0;
+  padding: 10px 30px 12px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.gain .php-email-form button[type=submit]:hover {
+  background: #6ab82a;
+}
+
+
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .gain .gain-phone {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+
+  .gain .gain-address,
+  .gain .gain-phone,
+  .gain .gain-email {
+    padding: 20px 0;
+  }
+}
+
+
+
+/*--------------------------------------------------------------
+# maintient
+--------------------------------------------------------------*/
+.maintient .maintient-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.maintient .maintient-info i {
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #5c9f24;
+}
+
+.maintient .maintient-info address,
+.maintient .maintient-info p {
+  margin-bottom: 0;
+  color: #000;
+}
+
+.maintient .maintient-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.maintient .maintient-info a {
+  color: #000;
+}
+
+.maintient .maintient-info a:hover {
+  color: #5c9f24;
+}
+
+.maintient .maintient-address,
+.maintient .maintient-phone,
+.maintient .maintient-email {
+  margin-bottom: 20px;
+}
+
+.maintient .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.maintient .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.maintient .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.maintient .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.maintient .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.maintient .php-email-form input,
+.maintient .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  height: auto;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.maintient .php-email-form input:focus,
+.maintient .php-email-form textarea:focus {
+  border-color: #5c9f24;
+}
+
+.maintient .php-email-form button[type=submit] {
+  background: #5c9f24;
+  border: 0;
+  padding: 10px 30px 12px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.maintient .php-email-form button[type=submit]:hover {
+  background: #6ab82a;
+}
+
+
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .maintient .maintient-phone {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+
+  .maintient .maintient-address,
+  .maintient .maintient-phone,
+  .maintient .maintient-email {
+    padding: 20px 0;
+  }
+}
+
+.gray-line {
+  border: none;
+  border-top: 1px solid gray;
+}
+
+
+

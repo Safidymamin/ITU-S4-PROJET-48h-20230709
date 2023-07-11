@@ -34,7 +34,12 @@ class Authentification extends CI_Controller {
 
         if ($user) {
 			$_SESSION['id_user'] = $user->id_user;
-			redirect('user/');
+			$_SESSION['user_level'] = $user->user_level;
+			if ($_SESSION['user_level'] == 5) {
+				redirect('user/');
+			}else if ($_SESSION['user_level'] == 0) {
+				redirect('regime/');
+			}
 			echo "User existant.";
         } else {
 			$data['message']='Mots de passe incorrect';
@@ -61,7 +66,12 @@ class Authentification extends CI_Controller {
 		// Vérifier si l'insertion s'est bien déroulée
 		if ($this->db->affected_rows() > 0) {
 			echo "Insertion réussie !";
+			$this->checkSession();
+			$data['success'] = "Insertion réussie!";
+        	$this->load->view('authentification/login', $data);
 		} else {
+			$data['error'] = "Erreur lors de la creation de compte!";
+        	$this->load->view('authentification/login', $data);
 			echo "Erreur lors de l'insertion.";
 		}
 	}
@@ -97,7 +107,11 @@ class Authentification extends CI_Controller {
 			session_start();
 		}
 		if (isset($_SESSION['id_user'])) {
-			redirect('user/');
+			if ($_SESSION['user_level'] == 5) {
+				redirect('user/');
+			}else if ($_SESSION['user_level'] == 0) {
+				redirect('regime/');
+			}
 		}
     }
     

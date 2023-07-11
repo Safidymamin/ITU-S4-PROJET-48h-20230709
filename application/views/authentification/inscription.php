@@ -19,17 +19,17 @@
             <h3>Login Here</h3>
             
             <label for="">Usename</label>
-            <input type="text" name="username" placeholder="username" id="username" value="Shipu" required>
+            <input type="text" name="username" placeholder="username" id="username" required>
             <label for="">lastname</label>
-            <input type="text" name="lastname" placeholder="Lastname" id="lastname" value="Uzumaki" required>
+            <input type="text" name="lastname" placeholder="Lastname" id="lastname" required>
             <label for="">firstname</label>
-            <input type="text" name="firstname" placeholder="FirstName" id="firstname" value="Naruto" required>
+            <input type="text" name="firstname" placeholder="FirstName" id="firstname" required>
             <label for="">Email</label>
-            <input type="email" name="email" placeholder="Email" id="email" value="naruto@gmail.com" required>
+            <input type="email" name="email" placeholder="Email" id="email" required>
             <label for="">Phone number</label>
-            <input type="text" name="phone" placeholder="Phone number" id="phone" value="435332" required>
+            <input type="text" name="phone" placeholder="Phone number" id="phone" required>
             <label for="">Password</label>
-            <input type="password" name="password" placeholder="Password" id="password" value="naruto" required>
+            <input type="password" name="password" placeholder="Password" id="password" required>
     
             <button>Log In</button>
             <div class="social">

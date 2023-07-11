@@ -26,6 +26,7 @@ CREATE TABLE code(
 INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 0, 'anthony');
 INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Pousy', 0, 'safidy@gmail.com', 'Mamy', 'Safidy', '+261 346183296', 0, 'safidy');
 INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Yoo', 0, 'haingo@gmail.com', 'Adri', 'Haingo', '+261 346183296', 0, 'haingo');
+INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('client', 5, 'client@gmail.com', 'Client', 'Clien', '+261 346183296', 0, 'client');
 
 INSERT INTO code(code, valeur) VALUES ('aaaa',3214);
 INSERT INTO code(code, valeur) VALUES ('bbbb',3214);

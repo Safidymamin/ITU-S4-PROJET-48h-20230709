@@ -18,6 +18,33 @@ class User extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function getRegime(){
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
+		$this->checkSession();
+		$idObjectif = $this->input->get('id_Objectif');
+		$this->load->model('regime_model');
+		$data['regimes'] = $this->regime_model->getAllProWhere($idObjectif);
+
+		$somme = 0;
+		foreach ($data['regimes'] as $re){
+			$somme = $somme + $re['prix_total'];
+		}
+
+		$data['prix_total'] = $somme;
+		$data['id_Objectif'] = $this->input->get('id_Objectif');
+		$this->load->model('userModel');
+		$user = $this->userModel->get_user_by_id($_SESSION['id_user']);
+		$data['user'] = $user;
+
+        // Rediriger vers une autre page ou afficher un message de succès
+		$this->load->view('structure/header', $data);
+		$this->load->view("user/regime", $data);
+		$this->load->view("accueil", $data);
+		$this->load->view('structure/footer', $data);
+
+	}
 	public function insertCode(){
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start();
@@ -70,14 +97,6 @@ class User extends CI_Controller {
 		$this->load->view('user/ajoutCode');
 	}	
 
-    public function checkSession(){
-		if (session_status() == PHP_SESSION_NONE) {
-			session_start();
-		}
-        if (!isset($_SESSION['id_user'])) {
-            redirect('authentification/');
-        }
-    }
     public function deconnection(){
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start();
@@ -100,6 +119,17 @@ class User extends CI_Controller {
 		$this->load->view('accueil', $data);
 		$this->load->view('structure/footer', $data);
 	}		
+	public function checkSession(){
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
+		if (!isset($_SESSION['id_user'])) {
+			redirect('authentification/');
+		}
+		else if ($_SESSION['id_user'] == 5) {
+			redirect('user/');
+		}
+	}
     
 	
 	

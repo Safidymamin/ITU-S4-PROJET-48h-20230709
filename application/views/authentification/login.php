@@ -20,6 +20,16 @@
     </div>
     <form action=<?php echo base_url('authentification/verifyLogin') ?> method="post">
         <h3>Login Here</h3>
+            <?php if(isset($success)) {?>
+                <div class="alert alert-success" role="alert" id="alert-message">
+                    <p style="color : green"><?php echo $success ?></p>
+                </div>
+            <?php } ?>
+            <?php if(isset($error)) {?>
+                <div class="alert alert-error" role="alert" id="alert-message">
+                    <p style="color : orange"><?php echo $error ?></p>
+                </div>
+            <?php } ?>
             <label for="username">Username</label>
             <input type="text" name="email" placeholder="Username"  value="anthony@gmail.com" required>
             <label for="password">Password</label>
