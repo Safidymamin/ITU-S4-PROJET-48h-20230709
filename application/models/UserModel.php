@@ -41,4 +41,12 @@ class UserModel extends CI_Model
         $this->user_level = 5;
         $this->db->insert('user', $data);
     }
+
+    public withDraw_argent($id_user, $amount)
+    {
+       $this->get_user_by_id($id_user);
+       $new_vola = $this->argent - $amount;
+       $this->db->set('argent', $new_vola);
+       
+    }
 }

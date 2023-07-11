@@ -41,6 +41,7 @@ class Authentification extends CI_Controller {
 			$this->load->view('authentification/login',$data);
         }
 	}
+	
 	public function insertUser()
 	{
 		if (session_status() == PHP_SESSION_NONE) {
@@ -101,6 +102,5 @@ class Authentification extends CI_Controller {
 		}
     }
     
-	
 	
 }
