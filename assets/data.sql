@@ -23,6 +23,14 @@ CREATE TABLE code(
     valeur FLOAT
     );
 
+CREATE table Etat_user(
+    id_etat_user INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_user INTEGER,
+    poids FLOAT,
+    taille FLOAT,
+    FOREIGN KEY (id_user) REFERENCES user(id_user)
+);
+
 INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 0, 'anthony');
 INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Pousy', 0, 'safidy@gmail.com', 'Mamy', 'Safidy', '+261 346183296', 0, 'safidy');
 INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Yoo', 0, 'haingo@gmail.com', 'Adri', 'Haingo', '+261 346183296', 0, 'haingo');
