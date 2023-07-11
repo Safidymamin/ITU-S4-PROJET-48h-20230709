@@ -15,7 +15,7 @@ class Activite_Sport extends CI_Controller {
 		$data ['listeObjectif'] = $this->Categorie_model->getAllObjectif();
 		$data['listePro'] = $this->Sport_model->getAllPro();
 		$data['page_title'] = "Sports";
-		$data['body'] = 'sports/Activite_Sport'; 
+		$data['body'] = 'sports/activite_Sport'; 
 		$this->load->view('template/index',$data);
 		
 	}
@@ -26,7 +26,7 @@ class Activite_Sport extends CI_Controller {
 		$description = $this->input->post('activite');
 		$regime = new Sport_model($objectif,$designation,$description);
 		$regime->createAliment();
-		redirect("activite_sport");
+		redirect("activite_Sport");
 	}
 	public function modifier(){
 		$id = $this->input->post('nombre');
@@ -36,12 +36,12 @@ class Activite_Sport extends CI_Controller {
             'activite' => $this->input->post('activiter'),
         );
 		$Sport_model = $this->Sport_model->update_Aliment($id,$data);
-		redirect("activite_sport");
+		redirect("activite_Sport");
 	}
 	public function supprimer(){
 		$id = $this->input->get('nombre');
 		$this->Sport_model->deleteAliment($id);
-		redirect("activite_sport");
+		redirect("activite_Sport");
 	}
 	
 }

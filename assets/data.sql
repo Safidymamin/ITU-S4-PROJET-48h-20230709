@@ -5,17 +5,17 @@
 -- CREATE DATABASE final_exam;
 -- USE final_exam;
 
-CREATE TABLE user(
-    id_user INTEGER PRIMARY KEY AUTO_INCREMENT,
-    user_level INTEGER DEFAULT 5,
-    username VARCHAR(200),
-    email VARCHAR(200),
-    firstname VARCHAR(200),
-    lastname VARCHAR(200),
-    phone VARCHAR(50),
-    argent FLOAT,
-    password VARCHAR(200)
-    );
+-- CREATE TABLE user(
+--     id_user INTEGER PRIMARY KEY AUTO_INCREMENT,
+--     user_level INTEGER DEFAULT 5,
+--     username VARCHAR(200),
+--     email VARCHAR(200),
+--     firstname VARCHAR(200),
+--     lastname VARCHAR(200),
+--     phone VARCHAR(50),
+--     argent FLOAT,
+--     password VARCHAR(200)
+--     );
 
 CREATE TABLE code(
     id_code INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -64,12 +64,12 @@ CREATE TABLE CategorieRegime (
   Nom VARCHAR(50),
   DureeSemaines INT
 );
-create table Aliment(
+create table aliment(
     id INTEGER PRIMARY KEY auto_increment,
     nom VARCHAR(100),
     prix FLOAT
 );
-CREATE TABLE RegimeJournalier (
+CREATE TABLE regimejournalier (
   id_r INT PRIMARY KEY AUTO_INCREMENT,
   categorieID INT REFERENCES categorie_objectif(id_Objectif),
   Jour INT,
@@ -82,9 +82,9 @@ CREATE TABLE RegimeJournalier (
   pourcentage_volaille int
 );
 
-INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 0, 'anthony');
-INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Pousy', 0, 'safidy@gmail.com', 'Mamy', 'Safidy', '+261 346183296', 0, 'safidy');
-INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Yoo', 0, 'haingo@gmail.com', 'Adri', 'Haingo', '+261 346183296', 0, 'haingo');
+-- INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Deba', 0, 'anthony@gmail.com', 'Arimalala', 'Anthony', '+261 346183296', 0, 'anthony');
+-- INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Pousy', 0, 'safidy@gmail.com', 'Mamy', 'Safidy', '+261 346183296', 0, 'safidy');
+-- INSERT INTO user(username, user_level, email, firstname, lastname, phone, argent, password) VALUES('Yoo', 0, 'haingo@gmail.com', 'Adri', 'Haingo', '+261 346183296', 0, 'haingo');
 
 INSERT INTO code(code, valeur) VALUES ('aaaa',3214);
 INSERT INTO code(code, valeur) VALUES ('bbbb',3214);
@@ -102,7 +102,7 @@ INSERT INTO code(code, valeur) VALUES ('llll',3214);
 insert into genre values
     (default,'Femme'),
     (default, 'Homme');
-INSERT INTO Aliment (ID, Nom, Prix)
+INSERT INTO aliment (ID, Nom, Prix)
 VALUES
   (1, 'Salade verte', 5.99),
   (2, 'Blanc de poulet grillé', 8.99),
@@ -120,14 +120,14 @@ VALUES
   (2, 'Régime intensif', 8),
   (3, 'Régime prolongé', 16);
 
-INSERT INTO categorie_Objectif VALUES
+INSERT INTO categorie_objectif VALUES
   (1, 'Perte de poids', 12, 70.0),
   (2, 'Gain de poids', 16, 60.0),
   (3, 'Maintien du poids', NULL, NULL);
 
 
 -- Régimes journaliers pour la catégorie "Perte de poids" sur 5 jours
-INSERT INTO RegimeJournalier (id_r, CategorieID, Jour, matin, midi, soir, RegimeID, pourcetage_poisson, pourcentage_viande, pourcentage_volaille)
+INSERT INTO regimejournalier (id_r, CategorieID, Jour, matin, midi, soir, RegimeID, pourcetage_poisson, pourcentage_viande, pourcentage_volaille)
 VALUES
   -- Jour 1
   (1, 1, 1, 1, 2, 3, 1, 0, 0, 50),

@@ -17,7 +17,7 @@ class Regime extends CI_Controller {
 		$data['listAll'] = $this->Aliment_model->getAllAliment();
 		$data['listePro'] = $this->Regime_model->getAllPro();
 		$data['page_title'] = "Regime";
-		$data['body'] = 'Regime/regime'; 
+		$data['body'] = 'regime/Regime'; 
 		$this->load->view('template/index',$data);
 		
 	}
