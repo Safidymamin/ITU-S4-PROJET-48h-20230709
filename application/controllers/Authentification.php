@@ -42,6 +42,7 @@ class Authentification extends CI_Controller {
 			echo "Ohhh";
         }
 	}
+	
 	public function insertUser()
 	{
 		$this->checkSession();
@@ -87,6 +88,5 @@ class Authentification extends CI_Controller {
         }
     }
     
-	
 	
 }
